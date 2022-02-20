@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+textarea {
+  @apply bg-slate-800 h-full block;
+}
