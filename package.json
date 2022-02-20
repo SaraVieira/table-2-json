@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "serve dist"
+    "start": "serve preview"
   },
   "dependencies": {
     "copy-to-clipboard": "^3.3.1",
