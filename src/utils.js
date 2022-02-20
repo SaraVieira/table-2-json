@@ -2,11 +2,11 @@ function htmlToElement(html) {
   var template = document.createElement("template");
   html = html.trim(); // Never return a text node of whitespace as the result
   template.innerHTML = html;
-  return template.content.firstChild;
+  return { tableEl: template.content.firstChild, parent: template };
 }
 
 export function parseHTMLTableElem(text) {
-  const tableEl = htmlToElement(text);
+  const { parent, tableEl } = htmlToElement(text);
   const columns = Array.from(tableEl.querySelectorAll("th")).map(
     (it) => it.textContent
   );
@@ -21,6 +21,6 @@ export function parseHTMLTableElem(text) {
       return obj;
     }, {});
   });
-
+  parent.remove();
   return allStuff;
 }
